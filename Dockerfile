@@ -15,7 +15,7 @@ RUN yarn build
 # Stage 2: Serve the application with Nginx
 FROM nginx:stable-alpine as production-stage
 
-COPY --from=build-stage /app/dist /usr/share/nginx/html
+COPY --from=build-stage /app /usr/share/nginx/html
 
 COPY nginx.conf /etc/nginx/nginx.conf
 
